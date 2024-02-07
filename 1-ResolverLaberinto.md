@@ -1,6 +1,9 @@
 
 public class ResolverLaberinto {
 
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
         int[][] laberinto = {
             {0, 1, 0, 0, 0, 1, 0, 0},
