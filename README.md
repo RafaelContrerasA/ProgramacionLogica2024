@@ -11,3 +11,4 @@ Tareas de la asignatura de Programación Lógica y Funcional.
 2. [Contar Islas.](./02-Contar_Islas//README.md)
 3. [Evaluar expresiones matematicas: Preorden, Postorden.](./03-Expresiones_Matematicas_(Preorden,Postorden)/README.md)
 4. [Encontrar la expresión general de la secuencia.](./04-Expresion_general_de_secuencias//README.md)
+5. [Ejercicios e investigacion de 6 Lenguajes (Python, C, Java, Perl, Go, Rust).](./05-Ejercicios_6_Lenguajes(Python,C,Java,Perl,Go,Rust)//README.md)
