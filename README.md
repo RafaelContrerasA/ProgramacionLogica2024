@@ -7,6 +7,6 @@ Tareas de la asignatura de Programación Lógica y Funcional.
 
 ## Indice del repositorio
 
-1. [Resolver Laberinto](./01-Resolver_Laberinto//1-ResolverLaberinto.md)
-2. [Contar Islas](./02-Contar_Islas//2-ContarIslas.md)
+1. [Resolver Laberinto](./01-Resolver_Laberinto//README.md)
+2. [Contar Islas](./02-Contar_Islas//README.md)
 3. [Evaluar expresiones matematicas: Preorden, Postorden](./03-Expresiones_Matematicas_(Preorden,Postorden)/README.md)
