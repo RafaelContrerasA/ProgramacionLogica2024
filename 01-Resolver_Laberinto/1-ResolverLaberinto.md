@@ -70,7 +70,7 @@ Este funcion recorre de manera recursiva el laberinto. Primero se valida que se 
         return false;
     }
 ```
-###Imprimir
+### Imprimir
 Se imprime la matriz una vez se ha encontrado la solucion del laberinto
 
 ```java
