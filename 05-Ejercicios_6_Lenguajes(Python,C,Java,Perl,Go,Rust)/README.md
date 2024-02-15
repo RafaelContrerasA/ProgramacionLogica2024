@@ -33,7 +33,13 @@ Orientado a objetos.
 # Factorial
 
 ## Python
-
+```python
+def factorial(n):
+    resultado = 1
+    for i in range(1, n + 1):
+        resultado *= i
+    print("El factorial de", n, "es:", resultado)
+```
 ## C
 
 ## Java
@@ -49,17 +55,41 @@ public static void calcularFactorial(int numero) {
 ```
 
 ## Perl
+```perl
+```
 
 ## Go
+```go
+```
 
 ## Rust
-
+```rust
+fn factorial(n: u64) {
+    let mut resultado = 1;
+    for i in 1..=n {
+        resultado *= i;
+    }
+    println!("El factorial de {} es: {}", n, resultado);
+}
+```
 
 # Fibonacci
 
 ## Python
+```python
+def fibonacci(n):
+    a,b = 0,1
+    for i in range(n):
+        a,b = b,a+b
+    return a
+
+print(fibonacci(6))
+```
 
 ## C
+```c
+
+```
 
 ## Java
 
@@ -80,18 +110,59 @@ public static void calcularFibonacci(int numero) {
 ```
 
 ## Perl
+```perl
+```
 
 ## Go
+```go
+```
 
 ## Rust
-
+```rust
+fn fibonacci(n: usize) {
+    if n == 0 {
+        println!("Sucesión de Fibonacci hasta el término {}: 0", n);
+        return;
+    }
+    if n == 1 {
+        println!("Sucesión de Fibonacci hasta el término {}: 0, 1", n);
+        return;
+    }
+    
+    print!("Sucesión de Fibonacci hasta el término {}: 0, 1", n);
+    let mut anterior = 0;
+    let mut actual = 1;
+    for _ in 2..=n {
+        let siguiente = anterior + actual;
+        print!(", {}", siguiente);
+        anterior = actual;
+        actual = siguiente;
+    }
+    println!();
+}
+```
 
 
 # Palindromo
 
 ## Python
+```python
+def es_palindromo(palabra):
+    palabra = palabra.lower()  
+    inicio = 0
+    fin = len(palabra) - 1
+    while inicio < fin:
+        if palabra[inicio] != palabra[fin]:
+            print(palabra, "no es un palíndromo.")
+            return
+        inicio += 1
+        fin -= 1
+    print(palabra, "es un palíndromo.")
+```
 
 ## C
+```c
+```
 
 ## Java
 ```java
@@ -111,10 +182,31 @@ public static boolean Palindromo(String palabra) {
 ```
 
 ## Perl
+```perl
+```
 
 ## Go
+```go
+```
 
 ## Rust
+```rust
+fn es_palindromo(palabra: &str) {
+    let palabra = palabra.to_lowercase(); // Convertir la palabra a minúsculas para evitar problemas de mayúsculas/minúsculas
+    let mut inicio = 0;
+    let mut fin = palabra.len() - 1;
+    while inicio < fin {
+        if palabra.chars().nth(inicio).unwrap() != palabra.chars().nth(fin).unwrap() {
+            println!("{} no es un palíndromo.", palabra);
+            return;
+        }
+        inicio += 1;
+        fin -= 1;
+    }
+    println!("{} es un palíndromo.", palabra);
+}
+
+```
 
 
 
