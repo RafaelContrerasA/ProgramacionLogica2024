@@ -1,35 +1,98 @@
 # Investigación lenguajes.
 
-## Python
+# -Python
+### **Tipado de datos**
+Dinámico y fuertemente tipado.
 
-## C
+### **Tipos de dato**
+int: números enteros.
+float: números de punto flotante.
+str: cadenas de texto.
+bool: valores booleanos (True o False).
+list: listas ordenadas de elementos.
+tuple: secuencias inmutables de elementos.
+dict: colecciones de pares clave-valor.
+set: colecciones desordenadas de elementos únicos.
 
-## Java
+### **Paradigma**
+Python es un lenguaje de programación multiparadigma, pero se destaca por ser orientado a objetos, funcional e imperativo.
 
-**Tipado de datos**
-Java es un lenguaje fuertemente tipado.
+# -C
 
-**Tipos de dato**
-- byte: 8 bits, rango de -128 a 127.
-- short: 16 bits, rango de -32,768 a 32,767.
-- int: 32 bits, rango de -2^31 a 2^31 - 1.
-- long: 64 bits, rango de -2^63 a 2^63 - 1.
-- float: 32 bits.
-- double: 64 bits.
-- char: 16 bits Unicode.
-- boolean: Verdadero o falso.
+### **Tipado de datos**
+C es un lenguaje de programación estáticamente tipado y débilmente tipado.
 
-**Paradigma**
-Orientado a objetos.
+### **Tipos de dato**
+char: caracteres.
+int: números enteros.
+float: números de punto flotante.
+double: números de punto flotante de doble precisión.
+void: tipo especial que indica la ausencia de tipo.
 
-## Perl
+### **Paradigma**
+C es un lenguaje de programación imperativo y estructurado, aunque también puede ser utilizado de manera procedural y, en cierta medida, orientado a objetos mediante el uso de estructuras y punteros.
 
-## Go
+# -Java
 
-## Rust
+### **Tipado de datos**
+Java es un lenguaje de programación estáticamente tipado y fuertemente tipado.
+
+### **Tipos de dato**
+byte: números enteros de 8 bits.
+short: números enteros de 16 bits.
+int: números enteros de 32 bits.
+long: números enteros de 64 bits.
+float: números de punto flotante de 32 bits.
+double: números de punto flotante de 64 bits.
+char: caracteres Unicode de 16 bits.
+boolean: valores booleanos (true o false).
+
+### **Paradigma**
+Java es principalmente un lenguaje de programación orientado a objetos, aunque también soporta programación imperativa y funcional a través de bibliotecas y características introducidas en versiones más recientes.
+
+# -Perl
+
+### **Tipado de datos**
+Perl es un lenguaje de programación dinámicamente tipado y débilmente tipado.
+
+### **Tipos de dato**
+Escalares (números, cadenas de texto, referencias).
+Arrays.
+Hashes (asociaciones de pares clave-valor).
+
+### **Paradigma**
+Perl tiene características que soportan una variedad de paradigmas de programación, como la imperativa, funcional y la orientada a objetos.
+
+# -Go
+
+### **Tipado de datos**
+Go es un lenguaje de programación estáticamente tipado y fuertemente tipado.
+
+### **Tipos de dato**
+Números enteros con y sin signo (int, uint).
+Números de punto flotante (float32, float64).
+Cadenas de texto (string).
+Booleanos (bool).
+
+### **Paradigma**
+Go es un lenguaje de programación concurrente y compilado, que sigue principalmente un paradigma imperativo, aunque también incorpora características de programación funcional.
+
+# -Rust
+
+### **Tipado de datos**
+Rust es un lenguaje de programación estáticamente tipado y fuertemente tipado.
+
+### **Tipos de dato**
+Tipos primitivos como enteros, flotantes, booleanos y caracteres.
+Tipos compuestos como arrays, tuplas y slices.
+Tipos de datos personalizados mediante estructuras (structs) y enumeraciones (enums).
 
 
+### **Paradigma**
+ Rust es un lenguaje de programación multiparadigma que combina características de programación imperativa, funcional y orientada a objetos
 
+
+---
 # Factorial
 
 ## Python
@@ -41,6 +104,15 @@ def factorial(n):
     print("El factorial de", n, "es:", resultado)
 ```
 ## C
+```c
+int factorial(int n) {
+    unsigned long long resultado = 1;
+    for (int i = 1; i <= n; ++i) {
+        resultado *= i;
+    }
+    return resultado;
+}
+```
 
 ## Java
 
@@ -56,10 +128,25 @@ public static void calcularFactorial(int numero) {
 
 ## Perl
 ```perl
+sub factorial {
+    my $n = shift;
+    my $resultado = 1;
+    for my $i (1..$n) {
+        $resultado *= $i;
+    }
+    return $resultado;
+}
 ```
 
 ## Go
 ```go
+func factorial(n int) uint64 {
+	resultado := uint64(1)
+	for i := 1; i <= n; i++ {
+		resultado *= uint64(i)
+	}
+	return resultado
+}
 ```
 
 ## Rust
@@ -72,7 +159,7 @@ fn factorial(n: u64) {
     println!("El factorial de {} es: {}", n, resultado);
 }
 ```
-
+---
 # Fibonacci
 
 ## Python
@@ -88,7 +175,21 @@ print(fibonacci(6))
 
 ## C
 ```c
-
+int fibonacci(int n) {
+    int a = 0, b = 1, temp;
+    if (n == 0)
+        return a;
+    else if (n == 1)
+        return b;
+    else {
+        for (int i = 2; i <= n; ++i) {
+            temp = a + b;
+            a = b;
+            b = temp;
+        }
+        return b;
+    }
+}
 ```
 
 ## Java
@@ -111,10 +212,41 @@ public static void calcularFibonacci(int numero) {
 
 ## Perl
 ```perl
+sub fibonacci {
+    my $n = shift;
+    my ($a, $b) = (0, 1);
+    if ($n == 0) {
+        return $a;
+    } elsif ($n == 1) {
+        return $b;
+    } else {
+        for my $i (2..$n) {
+            my $temp = $a + $b;
+            $a = $b;
+            $b = $temp;
+        }
+        return $b;
+    }
+}
 ```
 
 ## Go
 ```go
+func fibonacci(n int) int {
+	a, b := 0, 1
+	if n == 0 {
+		return a
+	} else if n == 1 {
+		return b
+	} else {
+		for i := 2; i <= n; i++ {
+			temp := a + b
+			a = b
+			b = temp
+		}
+		return b
+	}
+}
 ```
 
 ## Rust
@@ -142,7 +274,7 @@ fn fibonacci(n: usize) {
 }
 ```
 
-
+---
 # Palindromo
 
 ## Python
@@ -162,6 +294,15 @@ def es_palindromo(palabra):
 
 ## C
 ```c
+bool esPalindroma(char palabra[]) {
+    int longitud = strlen(palabra);
+    for (int i = 0; i < longitud / 2; ++i) {
+        if (palabra[i] != palabra[longitud - i - 1]) {
+            return false;
+        }
+    }
+    return true;
+}
 ```
 
 ## Java
@@ -183,10 +324,31 @@ public static boolean Palindromo(String palabra) {
 
 ## Perl
 ```perl
+sub esPalindroma {
+    my $palabra = shift;
+    $palabra = lc($palabra);
+    my $longitud = length($palabra);
+    for my $i (0..int($longitud / 2)) {
+        if (substr($palabra, $i, 1) ne substr($palabra, $longitud - $i - 1, 1)) {
+            return 0;
+        }
+    }
+    return 1;
+}
 ```
 
 ## Go
 ```go
+func esPalindroma(palabra string) bool {
+	palabra = strings.ToLower(palabra)
+	longitud := len(palabra)
+	for i := 0; i < longitud/2; i++ {
+		if palabra[i] != palabra[longitud-i-1] {
+			return false
+		}
+	}
+	return true
+}
 ```
 
 ## Rust
