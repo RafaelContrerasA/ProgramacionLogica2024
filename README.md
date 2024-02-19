@@ -14,3 +14,4 @@ Tareas de la asignatura de Programación Lógica y Funcional.
 5. [Ejercicios e investigacion de 6 Lenguajes (Python, C, Java, Perl, Go, Rust).](./05-Ejercicios_6_Lenguajes(Python,C,Java,Perl,Go,Rust)//README.md)
 6. [Investigar 20 funciones de Lisp.](./06_Funciones_De_Lisp//README.md)
 7. [Areas y volumenes.](./07-Calcular_Areas_Y_Volumenes//README.md)
+8. [Ejercicios listas con (car) y (cdr). ](./08-Ejercicios_Con_CAR_CDR//README.md)
