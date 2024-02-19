@@ -1,4 +1,4 @@
-# Areas y Volumenees
+# Areas y Volumenes
 Realizar en Lisp las expresiones para calcular el area y volumen de una figura.
 
 ## Area cuadrado
@@ -48,6 +48,7 @@ Realizar en Lisp las expresiones para calcular el area y volumen de una figura.
 )
 ```
 
+
 ## Area Triangulo
 ```lisp
 (defun areaTriangulo()
@@ -60,9 +61,9 @@ Realizar en Lisp las expresiones para calcular el area y volumen de una figura.
 )
 ```
 
-## Area Prisma Triangular
+## Volumen Prisma Triangular
 ```lisp
-(defun areaPrismaTriangular()
+(defun volumenPrismaTriangular()
     (setq areaBase (areaTriangulo))
     (princ "Dame la altura: ")
     (setq altura (read))
@@ -71,8 +72,19 @@ Realizar en Lisp las expresiones para calcular el area y volumen de una figura.
 )
 ```
 
-## Area Circulo
 
+## Volumen Piramide Triangular
+```lisp
+(defun volumenPrismaTriangular()
+    (setq areaBase (areaTriangulo))
+    (princ "Dame la altura: ")
+    (setq altura (read))
+    (setq volumen (* (/ areaBase 3) altura))
+    volumen
+)
+```
+
+## Area Circulo
 ```lisp
 (defun areaCirculo()
     (princ "Dame la longitud de su radio: ")
@@ -82,63 +94,144 @@ Realizar en Lisp las expresiones para calcular el area y volumen de una figura.
 )
 ```
 
-
-## Title
-
-
+## Volumen Esfera
 ```lisp
+(defun volumenEsfera()
+    (princ "Dame el radio: ")
+    (setq radio (read))
+    (setq volumen (* (/ 4 3 ) 3.1416 (expt radio 3)) )
+    volumen
+)
 ```
 
-## Title
-
-
+## Volumen Cilindro
 ```lisp
+(defun volumenCilindro()
+    (setq areaBase (areaCirculo))
+    (princ "Dame la altura: ")
+    (setq altura (read))
+    (setq volumen (* areaBase altura) )
+    volumen
+)
 ```
 
-## Title
-
-
+## Volumen Cono
 ```lisp
+(defun volumenCono()
+    (setq areaBase (areaCirculo))
+    (princ "Dame la altura: ")
+    (setq altura (read))
+    (setq volumen (/ (* areaBase altura) 3) )
+    volumen
+)
 ```
 
-## Title
-
+## Area pentagono
 
 ```lisp
+(defun areaPentagono()
+    (princ "Dame la longitud de su lado: ")
+    (setq lado (read))
+    (princ "Dame la longitud del apotema: ")
+    (setq apotema (read))
+    (setq area (/(* (* lado 5) apotema) 2))
+    area
+)
 ```
 
-## Title
-
-
+## Volumen Prisma Pentagonal
 ```lisp
+(defun volumenPrismaPentagonal()
+    (setq areaBase (areaPentagono))
+    (princ "Dame la altura: ")
+    (setq altura (read))
+    (setq volumen (* areaBase altura))
+    volumen
+)
 ```
 
-## Title
-
-
+## Volumen Dodecaedro
 ```lisp
+(defun volumenDodecaedro()
+    (princ "Dame la longitud de la arista: ")
+    (setq arista (read))
+    (setq volumen (* (/ 1  4) (+ 15 (* 7 (sqrt 5) )) (expt arista 3)) )
+    volumen
+)
 ```
 
-## Title
 
-
+## Area hexagono
 ```lisp
+(defun areaHexagono()
+    (princ "Dame la longitud de su lado: ")
+    (setq lado (read))
+    (princ "Dame la longitud del apotema: ")
+    (setq apotema (read))
+    (setq area (/(* (* lado 6) apotema) 2))
+    area
+)
 ```
 
-## Title
-
-
+## Volumen Prisma Hexagonal
 ```lisp
+(defun volumenPrismaHexagonal()
+    (setq areaBase (areaHexagono))
+    (princ "Dame la altura: ")
+    (setq altura (read))
+    (setq volumen (* areaBase altura))
+    volumen
+)
 ```
 
-## Title
-
+## Area Rombo
 
 ```lisp
+(defun areaRombo()
+    (princ "Dame la longitud de la diagonal mayor: ")
+    (setq dMayor (read))
+    (princ "Dame la longitud de la diagonal menor: ")
+    (setq dMenor (read))
+    (setq area (/ (* dMayor dMenor) 2))
+    area
+)
 ```
 
-## Title
-
+## Area Trapecio
 
 ```lisp
+(defun areaTrapecio()
+    (princ "Dame la longitud de la base mayor: ")
+    (setq bMayor (read))
+    (princ "Dame la longitud de la base menor: ")
+    (setq bMenor (read))
+    (princ "Dame la altura: ")
+    (setq altura (read))
+    (setq area (/ (* (+ dMayor dMenor) altura) 2))
+    area
+)
+```
+
+## Area Elispe
+```lisp
+(defun areaElipse()
+    (princ "Dame la longitud del semi-eje mayor: ")
+    (setq sEjeMayor (read))
+    (princ "Dame la longitud del semi-eje menor: ")
+    (setq sEjeMenor (read))
+    (setq area (* 3.1416 (* dMayor dMenor)))
+    area
+)
+```
+
+## Area Romboide
+```lisp
+(defun areaRomboide()
+    (princ "Dame la longitud de su base: ")
+    (setq base (read))
+    (princ "Dame la longitud de su altura: ")
+    (setq altura (read))
+    (setq area (* base altura))
+    area
+)
 ```
