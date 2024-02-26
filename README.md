@@ -15,3 +15,6 @@ Tareas de la asignatura de Programación Lógica y Funcional.
 6. [Investigar 20 funciones de Lisp.](./06_Funciones_De_Lisp//README.md)
 7. [Areas y volumenes.](./07-Calcular_Areas_Y_Volumenes//README.md)
 8. [Ejercicios listas con (car) y (cdr). ](./08-Ejercicios_Con_CAR_CDR//README.md)
+9. [Menu de areas y volumenes usando CASE y COND. ](./09-Menu_areas_figuras//README.md)
+10. [Practica if, case, when, unless, cond ](./10-Practica_if_case_when_unless_cond//README.md)
+11. 
