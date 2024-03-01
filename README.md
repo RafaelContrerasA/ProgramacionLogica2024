@@ -17,4 +17,5 @@ Tareas de la asignatura de Programación Lógica y Funcional.
 8. [Ejercicios listas con (car) y (cdr). ](./08-Ejercicios_Con_CAR_CDR//README.md)
 9. [Menu de areas y volumenes usando CASE y COND. ](./09-Menu_areas_figuras//README.md)
 10. [Practica if, case, when, unless, cond ](./10-Practica_if_case_when_unless_cond//README.md)
+11. [Practica if, case, when, unless, cond ](./11 - Recorrer_akinator_primer_nivel//README.md)
     
