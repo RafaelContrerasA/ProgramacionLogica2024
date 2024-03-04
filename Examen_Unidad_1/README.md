@@ -43,7 +43,6 @@
     (print `(,(car lista)) )
     (print (finalLista lista))
     (append `(,(car lista)) (finalLista lista))
-    (print lista2)
 )
 
 (defun finalLista(lista)
