@@ -24,6 +24,7 @@ Tareas de la asignatura de Programación Lógica y Funcional.
 11. [Practica if, case, when, unless, cond ](./11-Recorrer_akinator_primer_nivel//README.md)
 12. [Obtener rama de arbol (Personajes femeninos) ](./12-Imprimir_Rama_Personajes_Femeninos//README.md)
 13. [Arbol Genealogico](./13-Arbol_genealogico//README.md)
+14. [Reglas (Hermano, tio, nieto)](./14-Reglas_(Hermano,tio,nieto)//README.md)
 
 
 
