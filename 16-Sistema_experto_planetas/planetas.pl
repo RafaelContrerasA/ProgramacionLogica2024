@@ -71,4 +71,7 @@ orbita(astraea, sol).
 orbita(hebe, sol).
 orbita(iris, sol).
 
-%Pasar los satelites y que te regrese el planeta
+%Pasar los satelites y que te regrese el planeta si todas los lunas le pertenecen
+buscar([], E , 0). 
+buscar(X , E , 1) :- orbita(X, E). 
+buscar([X|Xs] , E , P) :- planeta(E) , buscar(X , E , S1) , buscar(Xs , E ,S2) , P is S1 + S2. 

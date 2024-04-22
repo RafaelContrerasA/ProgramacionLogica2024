@@ -9,6 +9,7 @@ Tareas de la asignatura de Programación Lógica y Funcional.
 
 ### Examenes
 1. [Examen U1](./Examen_Unidad_1//Examen.lsp)
+2. [Evaluacion logica primer orden](./Evaluacion_logica_1er_orden//README.md)
 
 ### Actividades
 1. [Resolver Laberinto.](./01-Resolver_Laberinto//README.md)
