@@ -26,7 +26,13 @@ Tareas de la asignatura de Programación Lógica y Funcional.
 12. [Obtener rama de arbol (Personajes femeninos) ](./12-Imprimir_Rama_Personajes_Femeninos//README.md)
 13. [Arbol Genealogico](./13-Arbol_genealogico//README.md)
 14. [Reglas (Hermano, tio, nieto)](./14-Reglas_(Hermano,tio,nieto)//README.md)
-
-
+15. [Analisis de predicados](./15-Analisis_predicados//README.md)
+16. [Sistema experto planetas](./16-Sistema_experto_planetas//README.md)
+17. [Arbol de funcion rotar prolog](./17-arbol_seguimiento_funcion_rotar//README.md)
+18. [De quien es el pez?](./18-De_quien_es_el_pez//README.md)
+19. [Analizar las reglas de einstein](./19-Analizar_reglas_einsteinpl//README.md)
+20. [Analisis si ya se tuviera color de casas](./20-analisis_teniendo_orden_casas//README.md)
+21. [Eliza: 20 templates para saludos.](./21-eliza_20_templates_saludo//README.md)
+22. [Eliza: Templates con 2 y 3 parametros.](./22-eliza_templates_dos_y_tres_parametros//README.md)
 
     
