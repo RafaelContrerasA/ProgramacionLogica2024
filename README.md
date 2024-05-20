@@ -34,5 +34,6 @@ Tareas de la asignatura de Programación Lógica y Funcional.
 20. [Analisis si ya se tuviera color de casas](./20-analisis_teniendo_orden_casas//README.md)
 21. [Eliza: 20 templates para saludos.](./21-eliza_20_templates_saludo//README.md)
 22. [Eliza: Templates con 2 y 3 parametros.](./22-eliza_templates_dos_y_tres_parametros//README.md)
+23. [Eliza: Crear flag propia.](./23-eliza_flag_propia//README.md)
 
     
