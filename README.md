@@ -8,7 +8,7 @@ Tareas de la asignatura de Programación Lógica y Funcional.
 ## Indice del repositorio
 
 ### Proyecto final
-1. [Eliza (Enfermedades, genealogico, Star Rail)](./Proyecto_final//README.md)
+1. [Eliza (Enfermedades, genealogico, Star Rail)](./Proyecto_Final//README.md)
 
 
 ### Examenes
