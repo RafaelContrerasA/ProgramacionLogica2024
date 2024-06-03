@@ -101,14 +101,67 @@ template([que, eres, tu, s(_)], [flagIs], [2]).
 template([eres, s(_), '?'], [flagIs], [2]).
 
 
-%%%%%%%%%%%%%%%%%%%%% Templetes genealogico
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Templetes genealogico %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %preguntar hijos
-template([eliza,  s(_), tiene, hijos, .], [flagHijo], [1]).
+template([eliza,  s(_), tiene, hijos, _], [flagHijos], [1]).
+template([quienes, son, hijos, de,  s(_), _], [flagHijos], [4]).
 
 %preguntar hermanos
-template([eliza,  s(_), tiene, hermanos, .], [flagHermano], [1]).
+template([eliza,  s(_), tiene, hermanos, .], [flagHermanos], [1]).
+template([quienes, son, hermanos, de,  s(_), _], [flagHermanos], [4]).
 
-%%%%%%%%%%%%%%%%%%%%% Templetes Star Rail
+%preguntar tios
+template([eliza,  s(_), tiene, tios, .], [flagTios], [1]).
+template([quienes, son, tios, de,  s(_), _], [flagTios], [4]).
+
+%preguntar abuelos
+template([eliza,  s(_), tiene, abuelos, .], [flagAbuelos], [1]).
+template([quienes, son, abuelos, de,  s(_), _], [flagAbuelos], [4]).
+
+%preguntar primos
+template([eliza,  s(_), tiene, primos, .], [flagPrimos], [1]).
+template([quienes, son, primos, de,  s(_), _], [flagPrimos], [4]).
+
+%preguntar sobrinos
+template([eliza,  s(_), tiene, sobrinos, .], [flagSobrinos], [1]).
+template([quienes, son, sobrinos, de,  s(_), _], [flagSobrinos], [4]).
+
+%preguntar nietos
+template([eliza,  s(_), tiene, nietos, .], [flagNietos], [1]).
+template([quienes, son, nietos, de,  s(_), _], [flagNietos], [4]).
+
+
+%preguntar si X es hijo de Y
+template([eliza, es, s(_), hijo, de, s(_), _], [flagEsHijoDe], [2,5]).
+template([es, s(_), hijo, de, s(_), _], [flagEsHijoDe], [1,4]).
+
+% preguntar si X es hermano de Y
+template([eliza, es, s(_), hermano, de, s(_), _], [flagEsHermanoDe], [2,5]).
+template([es, s(_), hermano, de, s(_), _], [flagEsHermanoDe], [1,4]).
+
+% preguntar si X es tío de Y
+template([eliza, es, s(_), tio, de, s(_), _], [flagEsTioDe], [2,5]).
+template([es, s(_), tio, de, s(_), _], [flagEsTioDe], [1,4]).
+
+%preguntar si X es abuelo de Y
+template([eliza, es, s(_), abuelo, de, s(_), _], [flagEsAbueloDe], [2,5]).
+template([es, s(_), abuelo, de, s(_), _], [flagEsAbueloDe], [1,4]).
+
+%preguntar si X es primo de Y
+template([eliza, es, s(_), primo, de, s(_), _], [flagEsPrimoDe], [2,5]).
+template([es, s(_), primo, de, s(_), _], [flagEsPrimoDe], [1,4]).
+
+% preguntar si X es sobrino de Y
+template([eliza, es, s(_), sobrino, de, s(_), _], [flagEsSobrinoDe], [2,5]).
+template([es, s(_), sobrino, de, s(_), _], [flagEsSobrinoDe], [1,4]).
+
+%preguntar si X es nieto de Y
+template([eliza, es, s(_), nieto, de, s(_), _], [flagEsNietoDe], [2,5]).
+template([es, s(_), nieto, de, s(_), _], [flagEsNietoDe], [1,4]).
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Templetes Star Rail %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %preguntar quienes son de rareza
 template([que, personajes, son, de, rareza,  s(_), _], [flagRareza], [5]).
 template([que, personajes, tienen, rareza,  s(_), _], [flagRareza], [4]).
@@ -204,6 +257,62 @@ template([ que, via, sigue, s(_), _], [flagBuscarVia], [3]).
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Templetes enfermedades %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%Preguntar enfermedad
+template([que, es, la, s(_), _], [flagSDescripcion], [3]).
+template([que, es, s(_), _], [flagSDescripcion], [2]).
+template([describe, la, s(_), _], [flagSDescripcion], [2]).
+
+
+%Preguntar enfermedades
+template([eliza, que, enfermedades, conoces, _], [flagEnfermedades], [0]).
+template([que, enfermedades, conoces, _], [flagEnfermedades], [0]).
+
+%preguntar causas
+template([cuales, son, las, causas, de, la,  s(_), _], [flagCausas], [6]).
+template([cuales, son, las, causas, de, s(_), _], [flagCausas], [5]).
+
+%preguntar medicamentos
+template([cuales, son, los, medicamentos, para, la,  s(_), _], [flagMedicamentos], [6]).
+template([que, medicamentos, ayudan, con, la,  s(_), _], [flagMedicamentos], [5]).
+
+%preguntar medicos
+template([cuales, especialistas, pueden, atender, la,  s(_), _], [flagMedicos], [5]).
+template([quienes, pueden, atender, la,  s(_), _], [flagMedicos], [4]).
+template([que, medicos, atienden, la,  s(_), _], [flagMedicos], [4]).
+
+%preguntar tratamientos
+template([que, tratamientos, ayudan, con, la,  s(_), _], [flagTratamientos], [5]).
+template([como, puedo, tratar, la,  s(_), _], [flagTratamientos], [4]).
+
+%preguntar sintomas
+template([cuales,son, los, sintomas, de, la,  s(_), _], [flagSintomas], [6]).
+template([que, sintomas, tiene, la,  s(_), _], [flagSintomas], [4]).
+
+%preguntar si X es causa de Y
+template([es, s(_), causa, de, la, s(_), _], [flagEsCausa], [1,5]).
+template([es, s(_), causa, de, s(_), _], [flagEsCausa], [1,4]).
+
+
+%preguntar si X es sintoma de Y
+template([es, s(_), sintoma, de, la, s(_), _], [flagEsSintoma], [1,5]).
+template([es, s(_), sintoma, de, s(_), _], [flagEsSintoma], [1,4]).
+
+%preguntar si X es tratamiento de Y
+template([es, s(_), tratamiento, de, la, s(_), _], [flagEsTratamiento], [1,5]).
+template([es, s(_), tratamiento, de, s(_), _], [flagEsTratamiento], [1,4]).
+
+%preguntar si X es medicamento de Y
+template([sirve, s(_), para, tratar, la, s(_), _], [flagEsMedicamento], [1,5]).
+template([sirve, s(_), para, tratar, s(_), _], [flagEsMedicamento], [1,4]).
+
+
+%preguntar si X es medico de Y
+template([es, s(_), encargado, de, tratar, la, s(_), _], [flagEsMedico], [1,6]).
+template([es, s(_), encargado, de, tratar, s(_), _], [flagEsMedico], [1,5]).
+
+
 
 %Otros
 
@@ -220,7 +329,7 @@ template([please, s(_), _], ['No', i, can, not, help, ',', i, am, just, a, machi
 template(_, ['Please', explain, a, little, more, '.'], []). 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Base de conocimiento genealogico %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
 padrede(benjamin, luz).
 padrede(benjamin, min).
@@ -234,42 +343,137 @@ padrede(rafaelc, io).
 padrede(min, angel).
 padrede(min, ayme).
 padrede(anonim, rafaelc).
-padredde(anonim, marta). 
+padrede(anonim, marta). 
+padrede(elvira, luz).
+padrede(elvira, min).
+padrede(elvira, irma).
+padrede(elvira, esperanza).
+padrede(ana, rafaelc).
+padrede(ana, marta).
+padrede(luz, rafael).
+padrede(luz, sean).
+padrede(luz, io).
+padrede(irma, miguel).
+padrede(irma, sugey).
+padrede(heidi, angel).
+padrede(heidi, ayme).
+padrede(esperanza, ivan).
+padrede(esperanza, hans).
+padrede(esperanza, rubi).
+padrede(esperanza, patricia).
+padrede(marta, alvaro).
 
-hermanode(luz, min).
-hermanode(luz, irma).
-hermanode(luz, esperanza).
-hermanode(rafael, sean).
-hermanode(rafael,io).
-hermanode(miguel, sugey).
-hermanode(sugey, miguel).
-hermanode(ivan, hans).
-hermanode(ivan, rubi).
-hermanode(ivan, patricia).
-hermanode(hans, ivan).
-hermanode(hans, rubi).
-hermanode(hans, patricia).
-hermanode(rubi, ivan).
-hermanode(rubi, hans).
-hermanode(rubi, patricia).
-hermanode(patricia, ivan).
-hermanode(patricia, hans).
-hermanode(patricia, rubi).
-hermanode(rafaelc, marta).
+% Hijo: Y es hijo de X si X es padre de Y
+hijode(Y, X) :- padrede(X, Y).
 
-familia(X, R) :- 
-    findall(Y, padrede(X, Y), Hijos),
+% Hermano: X es hermano de Y si comparten el mismo padre
+hermanode(X, Y) :- padrede(Z, X), padrede(Z, Y), X \= Y.
+
+% Tío: X es tío de Y si el padre de Y tiene un hermano que es X
+tiode(X, Y) :- padrede(Z, Y), hermanode(X, Z).
+
+% Abuelo: X es abuelo de Y si X es padre de Z y Z es padre de Y
+abuelode(X, Y) :- padrede(X, Z), padrede(Z, Y).
+
+% Sobrino: Y es sobrino de X si X es hermano del padre de Y
+sobrinode(Y, X) :- padrede(Z, Y), hermanode(X, Z).
+
+% Primos: X y Y son primos si los padres de X y Y son hermanos entre sí
+primode(X, Y) :- padrede(A, X), padrede(B, Y), hermanode(A, B).
+
+% Nieto: Si Y es abuelo de X
+nietode(X , Y) :- abuelode(Y, X).
+
+%reglas
+
+hijos_de(X, R) :- 
+    setof(Y, padrede(X, Y), Hijos),
     atomic_list_concat(Hijos, ', ', HijosStr),
-    format(atom(R), 'Si los  hijos de ~w es/son: ~w.', [X, HijosStr]).
+    format(atom(R), 'Los  hijos de ~w es/son: ~w.', [X, HijosStr]).
+hijos_de(X, R) :- 
+    \+padrede(X, _),
+   R=['Ninguno cumple con la propiedad'].
 
-hermano(X, R) :- 
-    findall(Y, hermanode(X, Y), Hermanos),
+
+hermanos_de(X, R) :- 
+    setof(Y, hermanode(X, Y), Hermanos),
     atomic_list_concat(Hermanos, ', ', HermanosStr),
-    format(atom(R), 'Si los  hermanos de ~w es/son: ~w.', [X, HermanosStr]).
+    format(atom(R), 'Los hermanos de ~w son: ~w.', [X, HermanosStr]).
+hermanos_de(X, R) :- 
+    \+hermanode(X, _),
+   R=['Ninguno cumple con la propiedad'].
 
+tios_de(X, R) :- 
+    setof(Y, tiode(Y, X), Tios),
+    atomic_list_concat(Tios, ', ', TiosStr),
+    format(atom(R), 'Los tios de ~w son: ~w.', [X, TiosStr]).
+tios_de(X, R) :- 
+    \+tiode(_, X),
+   R=['Ninguno cumple con la propiedad'].
 
-%Star rail base conocimiento
-% Definiciones de personajes
+abuelos_de(X, R) :- 
+    setof(Y, abuelode(Y, X), Abuelos),
+    atomic_list_concat(Abuelos, ', ', AbuelosStr),
+    format(atom(R), 'Los abuelos de ~w son: ~w.', [X, AbuelosStr]).
+abuelos_de(X, R) :- 
+    \+abuelode(_, X),
+   R=['Ninguno cumple con la propiedad'].
+
+sobrinos_de(X, R) :- 
+    setof(Y, sobrinode(Y, X), Sobrinos),
+    atomic_list_concat(Sobrinos, ', ', SobrinosStr),
+    format(atom(R), 'Los sobrinos de ~w son: ~w.', [X, SobrinosStr]).
+sobrinos_de(X, R) :- 
+    \+sobrinode(_, X),
+   R=['Ninguno cumple con la propiedad'].
+
+primos_de(X, R) :- 
+    setof(Y, primode(Y, X), Primos),
+    atomic_list_concat(Primos, ', ', PrimosStr),
+    format(atom(R), 'Los primos de ~w son: ~w.', [X, PrimosStr]).
+primos_de(X, R) :- 
+    \+primode(_, X),
+   R=['Ninguno cumple con la propiedad'].
+
+nietos_de(X, R) :- 
+    setof(Y, nietode(Y, X), Nietos),
+    atomic_list_concat(Nietos, ', ', NietosStr),
+    format(atom(R), 'Los nietos de ~w son: ~w.', [X, NietosStr]).
+nietos_de(X, R) :- 
+    \+nietode(_, X),
+   R=['Ninguno cumple con la propiedad'].
+
+% validar si X es hijo de Y
+es_hijo_de(X, Y, R):- hijode(X, Y), R = ['Si', X, es, hijo, de, Y].
+es_hijo_de(X, Y, R):- \+hijode(X, Y), R = ['No', X, no, es, hijo, de, Y].
+
+% validar si X es hermano de Y
+es_hermano_de(X, Y, R):- hermanode(X, Y), R = ['Si', X, es, hermano, de, Y].
+es_hermano_de(X, Y, R):- \+hermanode(X, Y), R = ['No', X, no, es, hermano, de, Y].
+
+% validar si X es tío de Y
+es_tio_de(X, Y, R):- tiode(X, Y), R = ['Si', X, es, tio, de, Y].
+es_tio_de(X, Y, R):- \+tiode(X, Y), R = ['No', X, no, es, tio, de, Y].
+
+% validar si X es abuelo de Y
+es_abuelo_de(X, Y, R):- abuelode(X, Y), R = ['Si', X, es, abuelo, de, Y].
+es_abuelo_de(X, Y, R):- \+abuelode(X, Y), R = ['No', X, no, es, abuelo, de, Y].
+
+% validar si X es primo de Y
+es_primo_de(X, Y, R):- primode(X, Y), R = ['Si', X, es, primo, de, Y].
+es_primo_de(X, Y, R):- \+primode(X, Y), R = ['No', X, no, es, primo, de, Y].
+
+% validar si X es sobrino de Y
+es_sobrino_de(X, Y, R):- sobrinode(X, Y), R = ['Si', X, es, sobrino, de, Y].
+es_sobrino_de(X, Y, R):- \+sobrinode(X, Y), R = ['No', X, no, es, sobrino, de, Y].
+
+% validar si X es nieto de Y
+es_nieto_de(X, Y, R):- nietode(X, Y), R = ['Si', X, es, nieto, de, Y].
+es_nieto_de(X, Y, R):- \+nietode(X, Y), R = ['No', X, no, es, nieto, de, Y].
+
+    
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Star rail base conocimiento %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 via(acheron, nihilidad).
 via(argenti, erudicion).
 via(arlan, destruccion).
@@ -468,9 +672,7 @@ planeta(xueyi, xianzhou_luofu).
 planeta(yanqing, xianzhou_luofu).
 planeta(yukong, xianzhou_luofu).
 
-
-
-%Reglas Star Rail
+%reglas
 son_de_rareza(X, R) :- 
     findall(Y, rareza(Y, X), Lista),
     atomic_list_concat(Lista, ', ', ListaStr),
@@ -524,8 +726,31 @@ buscar_planeta(X, R):- \+planeta(X, _), R = [ no, existe, personaje, X].
 
 
 
-%Base conocimiento enfermedades
-% Base de conocimiento sobre enfermedades
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Base conocimiento enfermedades %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+enfermedad(candidiasis).
+enfermedad(escoliosis).
+enfermedad(hipertension_arterial).
+
+
+% Descripcion
+descripcion(candidiasis, 'una infección causada por especies del hongo Candida, principalmente Candida albicans. Se
+manifiesta con lesiones mucocutáneas, fungemia y, en ocasiones, infecciones localizadas en múltiples sitios. Los
+síntomas varían según la localización de la infección y pueden incluir desde irritación y picazón hasta síntomas
+más graves como fiebre y shock en casos de candidiasis invasiva.
+').
+
+descripcion(escoliosis, 'una desviación lateral de la columna vertebral que se diagnostica comúnmente en adolescentes.
+Puede presentarse en personas con condiciones como parálisis cerebral o distrofia muscular, pero la causa de la
+mayoría de los casos en la infancia es desconocida. La escoliosis puede variar de leve a grave, y en casos severos,
+puede ser incapacitante y reducir el espacio dentro del pecho, afectando la función pulmonar.').
+
+descripcion(hipertension_arterial, 'una condición en la que la fuerza de
+la sangre contra las paredes de las arterias es consistentemente demasiado alta. Esto puede causar problemas de
+salud a largo plazo, como enfermedades cardíacas y accidentes cerebrovasculares. La presión arterial se mide en
+milímetros de mercurio (mm Hg) y se considera alta cuando las lecturas son de 130/80 mm Hg o más.').
+
+
+
 
 % Causas de enfermedades
 causa(candidiasis, uso_de_antibioticos).
@@ -606,6 +831,71 @@ sintoma(hipertension_arterial, falta_de_aliento).
 sintoma(hipertension_arterial, palpitaciones).
 sintoma(hipertension_arterial, sangrado_nasal).
 
+
+
+%Cuales son los sintomas de X
+enfermedades_conocidas(R) :- 
+    findall(Y, enfermedad(Y), Lista),
+    atomic_list_concat(Lista, ', ', ListaStr),
+    format(atom(R), 'Los enfermedades que conozco son: ~w.', [ListaStr]).
+
+descripcion_de(X, R) :- 
+    findall(Y, descripcion(X, Y), Lista),
+    atomic_list_concat(Lista, ', ', ListaStr),
+    format(atom(R), 'La ~w es ~w.', [X, ListaStr]).
+
+%Cuales son los sintomas de X
+sintomas_de(X, R) :- 
+    findall(Y, sintoma(X, Y), Lista),
+    atomic_list_concat(Lista, ', ', ListaStr),
+    format(atom(R), 'Los sintomas de ~w son: ~w.', [X, ListaStr]).
+
+%Cuales son los sintomas de X
+causas_de(X, R) :- 
+    findall(Y, causa(X, Y), Lista),
+    atomic_list_concat(Lista, ', ', ListaStr),
+    format(atom(R), 'Las causas de ~w son: ~w.', [X, ListaStr]).
+
+%Cuales son los sintomas de X
+tratamientos_de(X, R) :- 
+    findall(Y, tratamiento(X, Y), Lista),
+    atomic_list_concat(Lista, ', ', ListaStr),
+    format(atom(R), 'Los tratamientos de ~w son: ~w.', [X, ListaStr]).
+
+%Cuales son los sintomas de X
+medicamentos_de(X, R) :- 
+    findall(Y, medicamento(X, Y), Lista),
+    atomic_list_concat(Lista, ', ', ListaStr),
+    format(atom(R), 'Los medicamentos que ayudan con la ~w son: ~w.', [X, ListaStr]).
+
+%Cuales son los sintomas de X
+medicos_de(X, R) :- 
+    findall(Y, medico(X, Y), Lista),
+    atomic_list_concat(Lista, ', ', ListaStr),
+    format(atom(R), 'Los medicos que atienden la ~w son: ~w.', [X, ListaStr]).
+
+%Si X es causa de Y
+causa_de(Y, X, R):- causa(X, Y), R = ['Si', Y, 'es una posible causa de la', X].
+causa_de(Y, X, R):- \+causa(X, Y), R = ['No', Y, 'no es una posible causa de la', X].
+
+%Si X es sintoma de Y
+sintoma_de(Y, X, R):- sintoma(X, Y), R = ['Si', Y, 'es un posible sintoma de la', X].
+sintoma_de(Y, X, R):- \+sintoma(X, Y), R = ['No', Y, 'no es un posible sintoma de la', X].
+
+%Si X es tratamiento de Y
+tratamiento_de(Y, X, R):- tratamiento(X, Y), R = ['Si', Y, 'es una forma de tratar la', X].
+tratamiento_de(Y, X, R):- \+tratamiento(X, Y), R = ['No', Y, 'no es una forma de tratar la', X].
+
+%Si X es medicamento de Y
+medicamento_de(Y, X, R):- medicamento(X, Y), R = ['Si', Y, 'es un medicamento adecuado para tratar la', X].
+medicamento_de(Y, X, R):- \+medicamento(X, Y), R = ['No', Y, 'no es un medicamento adecuado para tratar la', X].
+
+%Si X es medico de Y
+medico_de(Y, X, R):- medico(X, Y), R = ['Si', Y, 'es capaz de dar tratamiento a la', X].
+medico_de(Y, X, R):- \+medico(X, Y), R = ['No', Y, 'no es capaz de dar tratamiento a la', X].
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Base de conocimineto eliza og %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
 % Lo que eliza sabe
 elizaKnows(X, R):- knows(X),  R = ['Si', conozco, sobre, X].
 elizaKnows(X, R):- \+knows(X),  R = ['No', desconozco, sobre, X].
@@ -662,26 +952,206 @@ match([S|Stim],[_|Input]) :-
 replace0([], _, _, Resp, R):- append(Resp, [], R),!.
 
 
-%%%%%%%%%%%%%%%%% Flags genealogico
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Flags genealogico %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
-
-%familia
+%hijo
 replace0([I|_], Input, _, Resp, R) :- 
     nth0(I, Input, Atom),
     nth0(0, Resp, X),
-    X == flagHijo,
-    familia(Atom, R).
+    X == flagHijos,
+    hijos_de(Atom, R).
 
 %hermanos
 replace0([I|_], Input, _, Resp, R) :- 
     nth0(I, Input, Atom),
     nth0(0, Resp, X),
-    X == flagHermano,
-    hermano(Atom, R).
+    X == flagHermanos,
+    hermanos_de(Atom, R).
+
+%tios
+replace0([I|_], Input, _, Resp, R) :- 
+    nth0(I, Input, Atom),
+    nth0(0, Resp, X),
+    X == flagTios,
+    tios_de(Atom, R).
+
+%abuelos
+replace0([I|_], Input, _, Resp, R) :- 
+    nth0(I, Input, Atom),
+    nth0(0, Resp, X),
+    X == flagAbuelos,
+    abuelos_de(Atom, R).
+
+%primos
+replace0([I|_], Input, _, Resp, R) :- 
+    nth0(I, Input, Atom),
+    nth0(0, Resp, X),
+    X == flagPrimos,
+    primos_de(Atom, R).
+
+%sobrinos
+replace0([I|_], Input, _, Resp, R) :- 
+    nth0(I, Input, Atom),
+    nth0(0, Resp, X),
+    X == flagSobrinos,
+    sobrinos_de(Atom, R).
+
+%nietos
+replace0([I|_], Input, _, Resp, R) :- 
+    nth0(I, Input, Atom),
+    nth0(0, Resp, X),
+    X == flagNietos,
+    nietos_de(Atom, R).
+
+% hijo de
+replace0([I, J], Input, _, Resp, R) :- 
+    nth0(I, Input, Atom),
+	nth0(J, Input, Atom1),
+	nth0(0, Resp, X),
+    X == flagEsHijoDe,
+    es_hijo_de(Atom, Atom1, R).
+
+% hermano de
+replace0([I, J], Input, _, Resp, R) :- 
+    nth0(I, Input, Atom),
+	nth0(J, Input, Atom1),
+	nth0(0, Resp, X),
+    X == flagEsHermanoDe,
+    es_hermano_de(Atom, Atom1, R).
+
+% tio de
+replace0([I, J], Input, _, Resp, R) :- 
+    nth0(I, Input, Atom),
+	nth0(J, Input, Atom1),
+	nth0(0, Resp, X),
+    X == flagEsTioDe,
+    es_tio_de(Atom, Atom1, R).
+
+% abuelo de
+replace0([I, J], Input, _, Resp, R) :- 
+    nth0(I, Input, Atom),
+	nth0(J, Input, Atom1),
+	nth0(0, Resp, X),
+    X == flagEsAbueloDe,
+    es_abuelo_de(Atom, Atom1, R).
+
+% primo de
+replace0([I, J], Input, _, Resp, R) :- 
+    nth0(I, Input, Atom),
+	nth0(J, Input, Atom1),
+	nth0(0, Resp, X),
+    X == flagEsPrimoDe,
+    es_primo_de(Atom, Atom1, R).
+
+% sobrino de
+replace0([I, J], Input, _, Resp, R) :- 
+    nth0(I, Input, Atom),
+	nth0(J, Input, Atom1),
+	nth0(0, Resp, X),
+    X == flagEsSobrinoDe,
+    es_sobrino_de(Atom, Atom1, R).
+
+% nieto de
+replace0([I, J], Input, _, Resp, R) :- 
+    nth0(I, Input, Atom),
+	nth0(J, Input, Atom1),
+	nth0(0, Resp, X),
+    X == flagEsNietoDe,
+    es_nieto_de(Atom, Atom1, R).
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Flags Enfermedades %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%Enfermedades del sistema
+replace0([_|_], _, _, Resp, R) :- 
+    %nth0(I, Input, Atom),
+    nth0(0, Resp, X),
+    X == flagEnfermedades,
+    enfermedades_conocidas(R).
 
-%%%%%%%%%%%%%%%%% Flags Star Rail
+
+%Que es X
+replace0([I|_], Input, _, Resp, R) :- 
+    nth0(I, Input, Atom),
+    nth0(0, Resp, X),
+    X == flagSDescripcion,
+    descripcion_de(Atom, R).
+
+%cuales son los sintomas de X
+replace0([I|_], Input, _, Resp, R) :- 
+    nth0(I, Input, Atom),
+    nth0(0, Resp, X),
+    X == flagSintomas,
+    sintomas_de(Atom, R).
+
+%cuales son las causas de X
+replace0([I|_], Input, _, Resp, R) :- 
+    nth0(I, Input, Atom),
+    nth0(0, Resp, X),
+    X == flagCausas,
+    causas_de(Atom, R).
+
+%cuales son los tratamientos de X
+replace0([I|_], Input, _, Resp, R) :- 
+    nth0(I, Input, Atom),
+    nth0(0, Resp, X),
+    X == flagTratamientos,
+    tratamientos_de(Atom, R).
+
+%cuales son los medicamentos de X
+replace0([I|_], Input, _, Resp, R) :- 
+    nth0(I, Input, Atom),
+    nth0(0, Resp, X),
+    X == flagMedicamentos,
+    medicamentos_de(Atom, R).
+
+%cuales son los medicos que atienden de X
+replace0([I|_], Input, _, Resp, R) :- 
+    nth0(I, Input, Atom),
+    nth0(0, Resp, X),
+    X == flagMedicos,
+    medicos_de(Atom, R).
+
+%si X es causa de Y
+replace0([I, J], Input, _, Resp, R) :- 
+    nth0(I, Input, Atom),
+	nth0(J, Input, Atom1),
+	nth0(0, Resp, X),
+    X == flagEsCausa,
+    causa_de(Atom, Atom1, R).
+
+%si X es sintoma de Y
+replace0([I, J], Input, _, Resp, R) :- 
+    nth0(I, Input, Atom),
+	nth0(J, Input, Atom1),
+	nth0(0, Resp, X),
+    X == flagEsSintoma,
+    sintoma_de(Atom, Atom1, R).
+
+%si X es tratamiento de Y
+replace0([I, J], Input, _, Resp, R) :- 
+    nth0(I, Input, Atom),
+	nth0(J, Input, Atom1),
+	nth0(0, Resp, X),
+    X == flagEsTratamiento,
+    tratamiento_de(Atom, Atom1, R).
+
+%si X es medicamento de Y
+replace0([I, J], Input, _, Resp, R) :- 
+    nth0(I, Input, Atom),
+	nth0(J, Input, Atom1),
+	nth0(0, Resp, X),
+    X == flagEsMedicamento,
+    medicamento_de(Atom, Atom1, R).
+
+%si X es medico de Y
+replace0([I, J], Input, _, Resp, R) :- 
+    nth0(I, Input, Atom),
+	nth0(J, Input, Atom1),
+	nth0(0, Resp, X),
+    X == flagEsMedico,
+    medico_de(Atom, Atom1, R).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Flags Star Rail %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %quienes son de rareza X
 replace0([I|_], Input, _, Resp, R) :- 
     nth0(I, Input, Atom),
@@ -772,7 +1242,7 @@ replace0([I|_], Input, _, Resp, R) :-
     X == flagBuscarVia,
     buscar_via(Atom, R). 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Flags Eliza %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % Eliza knows:
 replace0([I|_], Input, _, Resp, R):-
 	nth0(I, Input, Atom),
