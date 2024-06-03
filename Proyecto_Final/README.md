@@ -462,7 +462,8 @@ template([sirve, s(_), para, tratar, s(_), _], [flagEsMedicamento], [1,4]).
 template([es, s(_), encargado, de, tratar, la, s(_), _], [flagEsMedico], [1,6]).
 template([es, s(_), encargado, de, tratar, s(_), _], [flagEsMedico], [1,5]).
 
-
+%preguntar probabilidad de enfermedad
+template([podria, tener, s(_), '?', mis, sintomas, son, s(_)], [flagProbabilidad], [2,7]).
 
 %Otros
 
@@ -1074,6 +1075,21 @@ medicamento_de(Y, X, R):- \+medicamento(X, Y), R = ['No', Y, 'no es un medicamen
 medico_de(Y, X, R):- medico(X, Y), R = ['Si', Y, 'es capaz de dar tratamiento a la', X].
 medico_de(Y, X, R):- \+medico(X, Y), R = ['No', Y, 'no es capaz de dar tratamiento a la', X].
 
+%Regla para calcular probabilidad
+buscar([], E, 0).
+buscar(X, E, 1) :- sintoma(E, X).
+buscar([X|Xs], E, P) :- enfermedad(E), buscar(X, E, S1), buscar(Xs, E, S2), P is S1 + S2.
+
+cantSint(E, C) :- findall(X, sintoma(E, X), L), length(L, R), C is R.
+diagnostico([X|Xs] , E , K, R) :- buscar([X|Xs] , E , P) , cantSint(E , T) , K is P * 100 / T, R = ['La probabilidad de tener ', E, ' es', K].
+diagnostico([X|Xs] , E , K, R) :- \+buscar([X|Xs] , E , P) ,  R = ['Uno o mas sintomas no pertenecen a la enfermedad'].
+
+
+%sacar lista de sintomas desde template
+sublista_desde_n(Lista, N, Sublista) :-
+    length(Prefijo, N),        % Creamos un prefijo de longitud N
+    append(Prefijo, Sublista, Lista). % Concatenamos el prefijo con la sublista para obtener la lista completa
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Base de conocimineto eliza og %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
 % Lo que eliza sabe
@@ -1331,6 +1347,16 @@ replace0([I, J], Input, _, Resp, R) :-
     X == flagEsMedico,
     medico_de(Atom, Atom1, R).
 
+
+%Probabilidad
+replace0([I, J], Input, _, Resp, R) :- 
+    nth0(I, Input, Atom),
+	nth0(J, Input, Atom1),
+	nth0(0, Resp, X),
+    X == flagProbabilidad,
+    sublista_desde_n(Input, J, Sublista),
+    writeln(Sublista),
+    diagnostico(Sublista, Atom, Probabilidad, R).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Flags Star Rail %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %quienes son de rareza X
 replace0([I|_], Input, _, Resp, R) :- 
