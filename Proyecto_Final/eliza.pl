@@ -130,6 +130,9 @@ template([quienes, son, sobrinos, de,  s(_), _], [flagSobrinos], [4]).
 template([eliza,  s(_), tiene, nietos, .], [flagNietos], [1]).
 template([quienes, son, nietos, de,  s(_), _], [flagNietos], [4]).
 
+%preguntar padres
+template([eliza,  s(_), tiene, padres, .], [flagPadres], [1]).
+template([quienes, son, padres, de,  s(_), _], [flagPadres], [4]).
 
 %preguntar si X es hijo de Y
 template([eliza, es, s(_), hijo, de, s(_), _], [flagEsHijoDe], [2,5]).
@@ -159,9 +162,36 @@ template([es, s(_), sobrino, de, s(_), _], [flagEsSobrinoDe], [1,4]).
 template([eliza, es, s(_), nieto, de, s(_), _], [flagEsNietoDe], [2,5]).
 template([es, s(_), nieto, de, s(_), _], [flagEsNietoDe], [1,4]).
 
-
+%preguntar si X es padre de Y
+template([eliza, es, s(_), padre, de, s(_), _], [flagEsPadreDe], [2,5]).
+template([es, s(_), padre, de, s(_), _], [flagEsPadreDe], [1,4]).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Templetes Star Rail %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%preguntar que personajes conoces
+template([cuales, son, los,personajes, de, star, rail, _], [flagPersonajes], [0]).
+template([cuales, son, los,personajes, del, star, rail, _], [flagPersonajes], [0]).
+template([eliza, que, personajes, conoces, _], [flagPersonajes], [0]).
+template([que, personajes, conoces, _], [flagPersonajes], [0]).
+
+
+%preguntar que elementos conoces
+template([cuales, son, los, elementos, de, star, rail, _], [flagElementos], [0]).
+template([cuales, son, los, elementos, del, star, rail, _], [flagElementos], [0]).
+template([eliza, que, elementos, conoces, _], [flagElementos], [0]).
+template([que, elementos, conoces, _], [flagElementos], [0]).
+
+%preguntar que vias conoces
+template([cuales, son, las, vias, de, star, rail, _], [flagVias], [0]).
+template([cuales, son, las, vias, del, star, rail, _], [flagVias], [0]).
+template([eliza, que, vias, conoces, _], [flagVias], [0]).
+template([que, vias, conoces, _], [flagVias], [0]).
+
+%preguntar que planetas conoces
+template([cuales, son, los,planetas, de, star, rail, _], [flagPlanetas], [0]).
+template([cuales, son, los,planetas, del, star, rail, _], [flagPlanetas], [0]).
+template([eliza, que, planetas, conoces, _], [flagPlanetas], [0]).
+template([que, planetas, conoces, _], [flagPlanetas], [0]).
+
 %preguntar quienes son de rareza
 template([que, personajes, son, de, rareza,  s(_), _], [flagRareza], [5]).
 template([que, personajes, tienen, rareza,  s(_), _], [flagRareza], [4]).
@@ -314,8 +344,10 @@ template([es, s(_), encargado, de, tratar, s(_), _], [flagEsMedico], [1,5]).
 
 %preguntar probabilidad de enfermedad
 template([podria, tener, s(_), '?', mis, sintomas, son, s(_)], [flagProbabilidad], [2,7]).
+template([tengo, s(_), '?', mis, sintomas, son, s(_)], [flagProbabilidad], [1,6]).
 
-%Otros
+
+%%%%%%%%%%%%%%Otros
 
 template([como, estas, tu, '?'], [yo, estoy, bien, ',', gracias, por, preguntar, '.'], []).
 
@@ -444,6 +476,14 @@ nietos_de(X, R) :-
     \+nietode(_, X),
    R=['Ninguno cumple con la propiedad'].
 
+padres_de(X, R) :- 
+    setof(Y, padrede(Y, X), Nietos),
+    atomic_list_concat(Nietos, ', ', PadresStr),
+    format(atom(R), 'Los padres de ~w son: ~w.', [X, PadresStr]).
+padres_de(X, R) :- 
+    \+nietode(_, X),
+   R=['Ninguno cumple con la propiedad'].
+
 % validar si X es hijo de Y
 es_hijo_de(X, Y, R):- hijode(X, Y), R = ['Si', X, es, hijo, de, Y].
 es_hijo_de(X, Y, R):- \+hijode(X, Y), R = ['No', X, no, es, hijo, de, Y].
@@ -472,9 +512,92 @@ es_sobrino_de(X, Y, R):- \+sobrinode(X, Y), R = ['No', X, no, es, sobrino, de, Y
 es_nieto_de(X, Y, R):- nietode(X, Y), R = ['Si', X, es, nieto, de, Y].
 es_nieto_de(X, Y, R):- \+nietode(X, Y), R = ['No', X, no, es, nieto, de, Y].
 
-    
+% validar si X es padre de Y
+es_padre_de(X, Y, R):- padrede(X, Y), R = ['Si', X, es, padre, de, Y].
+es_padre_de(X, Y, R):- \+padrede(X, Y), R = ['No', X, no, es, padre, de, Y].    
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Star rail base conocimiento %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+personaje(acheron).
+personaje(argenti).
+personaje(arlan).
+personaje(asta).
+personaje(aventurino).
+personaje(bailu).
+personaje(blade).
+personaje(boothill).
+personaje(bronya).
+personaje(cisne_negro).
+personaje(clara).
+personaje(dan_heng).
+personaje(dan_heng_imbibitor_lunae).
+personaje(dr_ratio).
+personaje(fu_xuan).
+personaje(gallagher).
+personaje(gepard).
+personaje(guinaifen).
+personaje(hanya).
+personaje(herta).
+personaje(himeko).
+personaje(huohuo).
+personaje(jing_yuan).
+personaje(jingliu).
+personaje(kafka).
+personaje(luka).
+personaje(luocha).
+personaje(lynx).
+personaje(misha).
+personaje(natasha).
+personaje(pela).
+personaje(qingque).
+personaje(robin).
+personaje(ruan_mei).
+personaje(sampo).
+personaje(seele).
+personaje(serval).
+personaje(siete_de_marzo).
+personaje(silver_wolf).
+personaje(sparkle).
+personaje(sushang).
+personaje(tingyun).
+personaje(topaz_y_conti).
+personaje(trazacaminos).
+personaje(welt).
+personaje(xueyi).
+personaje(yanqing).
+personaje(yukong).
+
+
+% Definición de vías
+via(nihilidad).
+via(erudicion).
+via(destruccion).
+via(armonia).
+via(conservacion).
+via(abundancia).
+via(caceria).
+
+% Definición de elementos
+elemento(rayo).
+elemento(fisico).
+elemento(fuego).
+elemento(imaginario).
+elemento(viento).
+elemento(cuantico).
+elemento(hielo).
+
+% Definición de planetas
+planeta(izumo).
+planeta(estacion_espacial_herta).
+planeta(sigonia_iv).
+planeta(xianzhou_luofu).
+planeta(desconocido).
+planeta(aeragan_epharshel).
+planeta(jarilo_vi).
+planeta(penacony).
+planeta(pteruges_v).
+planeta(expreso_astral).
+planeta(punklorde).
+
 via(acheron, nihilidad).
 via(argenti, erudicion).
 via(arlan, destruccion).
@@ -673,6 +796,9 @@ planeta(xueyi, xianzhou_luofu).
 planeta(yanqing, xianzhou_luofu).
 planeta(yukong, xianzhou_luofu).
 
+
+
+
 %reglas
 son_de_rareza(X, R) :- 
     findall(Y, rareza(Y, X), Lista),
@@ -724,7 +850,25 @@ buscar_rareza(X, R):- \+rareza(X, _), R = [ no, existe, personaje, X].
 buscar_planeta(X, R):- planeta(X, Y), R = [ X, es, del, planeta, Y].
 buscar_planeta(X, R):- \+planeta(X, _), R = [ no, existe, personaje, X].
 
+personajes_conocidos(R) :- 
+    findall(Y, personaje(Y), Lista),
+    atomic_list_concat(Lista, ', ', ListaStr),
+    format(atom(R), 'Los personajes de Star Rail son: ~w.', [ListaStr]).
 
+elementos_conocidos(R) :- 
+    findall(Y, elemento(Y), Lista),
+    atomic_list_concat(Lista, ', ', ListaStr),
+    format(atom(R), 'Los elementos de Star Rail son: ~w.', [ListaStr]).
+
+vias_conocidas(R) :- 
+    findall(Y, via(Y), Lista),
+    atomic_list_concat(Lista, ', ', ListaStr),
+    format(atom(R), 'Las vias de Star Rail son: ~w.', [ListaStr]).
+
+planetas_conocidos(R) :- 
+    findall(Y, planeta(Y), Lista),
+    atomic_list_concat(Lista, ', ', ListaStr),
+    format(atom(R), 'Los planetas de Star Rail son: ~w.', [ListaStr]).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Base conocimiento enfermedades %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
@@ -1049,6 +1193,13 @@ replace0([I|_], Input, _, Resp, R) :-
     X == flagNietos,
     nietos_de(Atom, R).
 
+%padres
+replace0([I|_], Input, _, Resp, R) :- 
+    nth0(I, Input, Atom),
+    nth0(0, Resp, X),
+    X == flagPadres,
+    padres_de(Atom, R).
+
 % hijo de
 replace0([I, J], Input, _, Resp, R) :- 
     nth0(I, Input, Atom),
@@ -1105,6 +1256,13 @@ replace0([I, J], Input, _, Resp, R) :-
     X == flagEsNietoDe,
     es_nieto_de(Atom, Atom1, R).
 
+% padre de
+replace0([I, J], Input, _, Resp, R) :- 
+    nth0(I, Input, Atom),
+	nth0(J, Input, Atom1),
+	nth0(0, Resp, X),
+    X == flagEsPadreDe,
+    es_padre_de(Atom, Atom1, R).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Flags Enfermedades %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %Enfermedades del sistema
@@ -1205,9 +1363,37 @@ replace0([I, J], Input, _, Resp, R) :-
 	nth0(0, Resp, X),
     X == flagProbabilidad,
     sublista_desde_n(Input, J, Sublista),
-    writeln(Sublista),
     diagnostico(Sublista, Atom, Probabilidad, R).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Flags Star Rail %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%todos los personajes
+replace0([_|_], _, _, Resp, R) :- 
+    %nth0(I, Input, Atom),
+    nth0(0, Resp, X),
+    X == flagPersonajes,
+    personajes_conocidos(R).
+
+%todos los elementos
+replace0([_|_], _, _, Resp, R) :- 
+    %nth0(I, Input, Atom),
+    nth0(0, Resp, X),
+    X == flagElementos,
+    elementos_conocidos(R).
+
+%todos las vias
+replace0([_|_], _, _, Resp, R) :- 
+    %nth0(I, Input, Atom),
+    nth0(0, Resp, X),
+    X == flagVias,
+    vias_conocidas(R).
+
+%todos los planetas
+replace0([_|_], _, _, Resp, R) :- 
+    %nth0(I, Input, Atom),
+    nth0(0, Resp, X),
+    X == flagPlanetas,
+    planetas_conocidos(R).
+
+
 %quienes son de rareza X
 replace0([I|_], Input, _, Resp, R) :- 
     nth0(I, Input, Atom),
