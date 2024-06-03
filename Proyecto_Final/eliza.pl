@@ -756,14 +756,14 @@ milímetros de mercurio (mm Hg) y se considera alta cuando las lecturas son de 1
 causa(candidiasis, uso_de_antibioticos).
 causa(candidiasis, sistema_inmunitario_debilitado).
 causa(candidiasis, diabetes).
-causa(candidiasis, embarazo).
+causa(candidiasis, cambios_hormonales).
 causa(candidiasis, uso_de_anticonceptivos_orales).
 causa(candidiasis, higiene_inadecuada_o_excesiva).
 
-causa(escoliosis, idiopatica).
-causa(escoliosis, congenita).
-causa(escoliosis, neuromuscular).
-causa(escoliosis, degenerativa).
+causa(escoliosis, factores_hereditarios).
+causa(escoliosis, afecciones_neuromusculares).
+causa(escoliosis, defectos_de_nacimiento).
+causa(escoliosis, lesiones_en_columna).
 
 causa(hipertension_arterial, genetica).
 causa(hipertension_arterial, dieta_alta_en_sodio).
@@ -774,62 +774,92 @@ causa(hipertension_arterial, estres).
 causa(hipertension_arterial, envejecimiento).
 
 % Médicos especializados en enfermedades
-medico(candidiasis, otorrinolaringologo).
 medico(candidiasis, dermatologo).
 medico(candidiasis, ginecologo).
+medico(candidiasis, urologo).
+medico(candidiasis, infectologo).
+medico(candidiasis, estamatologo).
 
 medico(escoliosis, ortopedista).
 medico(escoliosis, fisioterapeuta).
+medico(escoliosis, pediatra).
 
 medico(hipertension_arterial, cardiologo).
 medico(hipertension_arterial, medico_general).
 medico(hipertension_arterial, nefrologo).
+medico(hipertension_arterial, endocrinologo).
 
 % Medicamentos para enfermedades
 medicamento(candidiasis, fluconazol).
 medicamento(candidiasis, clotrimazol).
+medicamento(candidiasis, miconazol).
+medicamento(candidiasis, terconazol).
 medicamento(candidiasis, nistatina).
+medicamento(candidiasis, itraconazol).
+medicamento(candidiasis, ketoconazol).
 
+medicamento(escoliosis, ibuprofeno).
+medicamento(escoliosis, naproxeno).
 medicamento(escoliosis, analgesicos).
 
 medicamento(hipertension_arterial, diureticos).
-medicamento(hipertension_arterial, beta_bloqueadores).
-medicamento(hipertension_arterial, inhibidores_de_la_enzima_convertidora_de_angiotensina).
+medicamento(hipertension_arterial, clortalidona).
+medicamento(hipertension_arterial, clorotiazida).
+medicamento(hipertension_arterial, hidroclorotiazida).
+medicamento(hipertension_arterial, indapamida).
+medicamento(hipertension_arterial, metolazona).
+medicamento(hipertension_arterial, acebutolol).
+medicamento(hipertension_arterial, atenolol).
+medicamento(hipertension_arterial, betaxolol).
+medicamento(hipertension_arterial, bisoprolol).
+medicamento(hipertension_arterial, metoprolol).
+medicamento(hipertension_arterial, nadolol).
 
 % Tratamientos para enfermedades
-tratamiento(candidiasis, antifungicos_orales).
-tratamiento(candidiasis, antifungicos_topicos).
-tratamiento(candidiasis, higiene_personal).
+tratamiento(candidiasis, terapia_antimicotica).
+tratamiento(candidiasis, medicacion_oral).
+tratamiento(candidiasis, acido_borico).
 
+tratamiento(escoliosis, observacion_periodica).
+tratamiento(escoliosis, corset_ortopedico).
 tratamiento(escoliosis, fisioterapia).
-tratamiento(escoliosis, corset).
 tratamiento(escoliosis, cirugia).
 
-tratamiento(hipertension_arterial, dieta_baja_en_sal).
+tratamiento(hipertension_arterial, cambio_de_dieta).
 tratamiento(hipertension_arterial, ejercicio_regular).
-tratamiento(hipertension_arterial, manejo_del_estres).
+tratamiento(hipertension_arterial, reducir_sales).
+tratamiento(hipertension_arterial, medicacion).
+
+
 
 % Síntomas de enfermedades
 sintoma(candidiasis, picazon).
-sintoma(candidiasis, enrojecimiento).
-sintoma(candidiasis, secrecion_blanca).
-sintoma(candidiasis, dolor_al_orinar).
-sintoma(candidiasis, ardor).
-sintoma(candidiasis, inflamacion).
+sintoma(candidiasis, irritacion).
+sintoma(candidiasis, fiebre).
+sintoma(candidiasis, dolor).
+sintoma(candidiasis, secreciones).
+sintoma(candidiasis, ardor_al_orinar).
 
-sintoma(escoliosis, curvatura_anormal_de_la_columna).
+sintoma(escoliosis, hombros_desiguales).
+sintoma(escoliosis, omoplato_prominente).
+sintoma(escoliosis, cintura_desigual).
+sintoma(escoliosis, caja_toracica_sobresaliente).
 sintoma(escoliosis, dolor_de_espalda).
 sintoma(escoliosis, asimetria_en_hombros_y_caderas).
 sintoma(escoliosis, dificultad_para_respirar).
 sintoma(escoliosis, fatiga_muscular).
 sintoma(escoliosis, dolor_de_cuello).
 
-sintoma(hipertension_arterial, dolor_de_cabeza).
+sintoma(hipertension_arterial, dolores_de_cabeza).
+sintoma(hipertension_arterial, falta_de_aire).
+sintoma(hipertension_arterial, sangrados_nasales).
+sintoma(hipertension_arterial, dolor_intenso_de_cabeza).
+sintoma(hipertension_arterial, dolor_en_el_pecho).
 sintoma(hipertension_arterial, mareos).
+sintoma(hipertension_arterial, dificultad_para_respirar).
+sintoma(hipertension_arterial, nauseas).
+sintoma(hipertension_arterial, vomitos).
 sintoma(hipertension_arterial, vision_borrosa).
-sintoma(hipertension_arterial, falta_de_aliento).
-sintoma(hipertension_arterial, palpitaciones).
-sintoma(hipertension_arterial, sangrado_nasal).
 
 
 
