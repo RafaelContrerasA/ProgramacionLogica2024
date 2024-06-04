@@ -448,14 +448,21 @@ template([describe, la, s(_), _], [flagSDescripcion], [2]).
 %Preguntar enfermedades
 template([eliza, que, enfermedades, conoces, _], [flagEnfermedades], [0]).
 template([que, enfermedades, conoces, _], [flagEnfermedades], [0]).
+template([que, enfermedades, sabes, _], [flagEnfermedades], [0]).
+
 
 %preguntar causas
 template([cuales, son, las, causas, de, la,  s(_), _], [flagCausas], [6]).
 template([cuales, son, las, causas, de, s(_), _], [flagCausas], [5]).
+template([causas, de, la, s(_), _], [flagCausas], [3]).
+template([causas, de, s(_), _], [flagCausas], [2]).
+
 
 %preguntar medicamentos
 template([cuales, son, los, medicamentos, para, la,  s(_), _], [flagMedicamentos], [6]).
 template([que, medicamentos, ayudan, con, la,  s(_), _], [flagMedicamentos], [5]).
+template([medicamentos, para, la,  s(_), _], [flagMedicamentos], [3]).
+
 
 %preguntar medicos
 template([cuales, especialistas, pueden, atender, la,  s(_), _], [flagMedicos], [5]).
@@ -465,10 +472,16 @@ template([que, medicos, atienden, la,  s(_), _], [flagMedicos], [4]).
 %preguntar tratamientos
 template([que, tratamientos, ayudan, con, la,  s(_), _], [flagTratamientos], [5]).
 template([como, puedo, tratar, la,  s(_), _], [flagTratamientos], [4]).
+template([tratamiento, para, la,  s(_), _], [flagTratamientos], [3]).
+template([tratamiento, de, la,  s(_), _], [flagTratamientos], [3]).
+
+
 
 %preguntar sintomas
 template([cuales,son, los, sintomas, de, la,  s(_), _], [flagSintomas], [6]).
 template([que, sintomas, tiene, la,  s(_), _], [flagSintomas], [4]).
+template([sintomas, de, la,  s(_), _], [flagSintomas], [3]).
+
 
 %preguntar si X es causa de Y
 template([es, s(_), causa, de, la, s(_), _], [flagEsCausa], [1,5]).
@@ -476,6 +489,7 @@ template([es, s(_), causa, de, s(_), _], [flagEsCausa], [1,4]).
 
 
 %preguntar si X es sintoma de Y
+template([es, la, s(_), sintoma, de, la, s(_), _], [flagEsSintoma], [2,6]).
 template([es, s(_), sintoma, de, la, s(_), _], [flagEsSintoma], [1,5]).
 template([es, s(_), sintoma, de, s(_), _], [flagEsSintoma], [1,4]).
 
@@ -484,18 +498,29 @@ template([es, s(_), tratamiento, de, la, s(_), _], [flagEsTratamiento], [1,5]).
 template([es, s(_), tratamiento, de, s(_), _], [flagEsTratamiento], [1,4]).
 
 %preguntar si X es medicamento de Y
+template([sirve, el, s(_), para, tratar, la, s(_), _], [flagEsMedicamento], [2,6]).
 template([sirve, s(_), para, tratar, la, s(_), _], [flagEsMedicamento], [1,5]).
 template([sirve, s(_), para, tratar, s(_), _], [flagEsMedicamento], [1,4]).
 
 
 %preguntar si X es medico de Y
+template([es, un, s(_), encargado, de, tratar, la, s(_), _], [flagEsMedico], [2,7]).
+template([es, un, s(_), capaz, de, tratar, la, s(_), _], [flagEsMedico], [2,7]).
 template([es, s(_), encargado, de, tratar, la, s(_), _], [flagEsMedico], [1,6]).
+template([es, s(_), capaz, de, tratar, la, s(_), _], [flagEsMedico], [1,6]).
 template([es, s(_), encargado, de, tratar, s(_), _], [flagEsMedico], [1,5]).
+template([es, s(_), capaz, de, tratar, s(_), _], [flagEsMedico], [1,5]).
+
 
 %preguntar probabilidad de enfermedad
 template([podria, tener, s(_), '?', mis, sintomas, son, s(_)], [flagProbabilidad], [2,7]).
+template([puedo, tener, s(_), '?', mis, sintomas, son, s(_)], [flagProbabilidad], [2,7]).
 template([tengo, s(_), '?', mis, sintomas, son, s(_)], [flagProbabilidad], [1,6]).
 
+%Receta (regla del documento)
+template([dame, receta, para, la,  s(_)], [flagReceta], [4]).
+template([receta, para, la,  s(_)], [flagReceta], [3]).
+template([receta, de,  s(_)], [flagReceta], [2]).
 
 %%%%%%%%%%%%%%Otros
 
@@ -1069,10 +1094,10 @@ causa(hipertension_arterial, estres).
 causa(hipertension_arterial, envejecimiento).
 
 % Médicos especializados en enfermedades
+medico(candidiasis, infectologo).
 medico(candidiasis, dermatologo).
 medico(candidiasis, ginecologo).
 medico(candidiasis, urologo).
-medico(candidiasis, infectologo).
 medico(candidiasis, estamatologo).
 
 medico(escoliosis, ortopedista).
@@ -1233,6 +1258,14 @@ diagnostico([X|Xs] , E , K, R) :- \+buscar([X|Xs] , E , P) ,  R = ['Uno o mas si
 sublista_desde_n(Lista, N, Sublista) :-
     length(Prefijo, N),        % Creamos un prefijo de longitud N
     append(Prefijo, Sublista, Lista). % Concatenamos el prefijo con la sublista para obtener la lista completa
+
+
+
+atiende_especialista(E, S) :- sintoma(Z, S), medico(Z, E).
+mereceta(Es, M, E, R) :- medicamento(E, M), sintoma(E, S), atiende_especialista(Es, S), R = ['se recomienda tomar ', M, 'y acudir con el ', Es].
+mereceta(Es, M, E, R) :- \+medicamento(E, M),  R = ['No se encontro la enfermedad especificada'].
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Base de conocimineto eliza og %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
@@ -1514,6 +1547,15 @@ replace0([I, J], Input, _, Resp, R) :-
     X == flagProbabilidad,
     sublista_desde_n(Input, J, Sublista),
     diagnostico(Sublista, Atom, Probabilidad, R).
+
+%receta
+replace0([I|_], Input, _, Resp, R) :- 
+    nth0(I, Input, Atom),
+    nth0(0, Resp, X),
+    X == flagReceta,
+    mereceta(E,M, Atom, R).
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Flags Star Rail %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %todos los personajes
 replace0([_|_], _, _, Resp, R) :- 
@@ -1674,5 +1716,4 @@ replace0([I|Index], Input, N, Resp, R):-
 	length(Index, M), M > 0,
 	select(N, Resp, Atom, R1),
 	N1 is N + 1,
-	replace0(Index, Input, N1, R1, R),!.
-``` 
+	replace0(Index, Input, N1, R1, R),!.``` 
