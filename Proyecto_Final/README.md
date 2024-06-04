@@ -144,6 +144,7 @@ otras condiciones médicas.
 - medlineplus.gob
 - medicosdoc.com
 
+[Lista de preguntas Eliza](./preguntas.md)
 
 # Codigo prolog
 
